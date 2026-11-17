@@ -1,4 +1,10 @@
+---
+status: superseded by ADR-0009
+---
+
 # Bootstrap shell
+
+ADR 0009 retires the Nix-generation recovery role. `ers.bash` remains a shell shipped in the snap.
 
 `ers.bash` is shipped in the snap, not installed by Nix. It still starts when the current generation is broken, and from that shell the generation can be rolled back. `ers.desktop` starts Hyprland and does not repair a broken generation.
 

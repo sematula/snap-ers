@@ -1,3 +1,7 @@
+---
+status: superseded by ADR-0009
+---
+
 # Nix store in SNAP_COMMON
 
 The Nix store and profiles live in the snap's common data (`/var/snap/ers/common`). An install hook creates that directory and makes it writable by the user who runs ERS. Refresh leaves it in place. Removing the snap deletes it.

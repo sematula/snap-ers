@@ -1,0 +1,31 @@
+# Integration tests
+
+A built snap, a booted container, a visible window, and an accelerated window are separate results. devmode is not a strict-confinement result.
+
+How to reach delia stays in the README. These notes do not repeat connection details.
+
+## Bootstrap shell (pre-pivot)
+
+Observed on delia against installed `ers` 0.1.0 revision `x1`. Not re-run for the pivot.
+
+| Check | Result |
+| --- | --- |
+| `confinement: strict` and `base: core26` in `/snap/ers/current/meta/snap.yaml` | Pass |
+| `snap run ers.bash` executable is `/snap/ers/x1/usr/bin/bash` | Pass |
+| `command -v nix` fails and `/nix` is absent inside the shell | Pass |
+| Host has no `nix` binary, no `/nix`, and no Nix accounts | Pass |
+| Ubuntu Frame daemon and the Frame kiosk stay active | Pass |
+| Install hook `chmod` of `/var/snap/ers/common` | Fail. AppArmor deny on `snap.ers.hook.install` |
+| Shipped hook creates `/var/snap/ers/common/data` mode `1777` | The hook does this. It is not the store directory ADR 0004 named |
+| POSIX ACL via `setxattr` under that hook profile | Mode became `0777` and the invoking user created a file. Not shipped in the hook |
+
+Hyprland was not launched. No Wayland client was launched.
+
+## Pivot milestones
+
+| Milestone | Result |
+| --- | --- |
+| M1 Hyprland under strict confinement, LXD stopped | Not run |
+| M2 NixOS container: systemd, Nix, internal user, restart | Not run |
+| M3 Client process in the container, window on the Hyprland display | Not run |
+| M4 Accelerated client without display-control devices in the container | Not run |

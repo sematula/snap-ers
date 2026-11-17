@@ -5,7 +5,7 @@ ERS is a strictly confined snap on a Ubuntu host. This repository exists to buil
 ## Language
 
 **Edge Runner Shell (ERS)**:
-The product: a strictly confined Ubuntu snap that integrates a Nix-managed userspace with a Hyprland desktop.
+The product: a strictly confined Ubuntu snap that presents a Hyprland desktop and connects it to the userspace.
 _Avoid_: snap-ers, ers
 
 **ers**:
@@ -33,8 +33,8 @@ The immutable part of the ers snap.
 _Avoid_: userspace
 
 **Userspace**:
-The persistent, Nix-managed part of ERS.
-_Avoid_: bootstrap, the host
+The unprivileged NixOS system container. Nix, its accounts, and the applications the person runs live here.
+_Avoid_: bootstrap, the ers snap, in-snap Nix
 
 **Host home**:
 The Unix account's home directory on the host. ERS may read and write its non-hidden files.
