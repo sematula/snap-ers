@@ -28,7 +28,9 @@ The container's `/etc/nixos/configuration.nix` imports `virtualisation/lxc-conta
 
 The Proxmox wiki's `nixos.proxmoxLXC` tarball is a different artifact. Its sample container is privileged (`--unprivileged=0`, `proxmoxLXC.privileged = true`), turns Nix's sandbox off, and the Plasma section binds the host display and input into the container. None of that is this container.
 
-Still open on #13: an internal user with sudo, and the same boot on the host's LXD.
+On this instance, `developer` is uid 1000 in group `wheel`. `sudo -n id` prints `uid=0(root)`. `/home/developer/home-probe`, owned by `developer`, was still there after `lxc restart`. The container uid map is `0 1000000 1000000000`, so that root is not host root. The first `sudo` in the few seconds after restart failed with a PAM account error; the next one succeeded.
+
+Still open on #13: the same boot on the host's LXD.
 
 ## M3 — first client
 

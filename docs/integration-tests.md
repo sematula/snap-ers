@@ -42,6 +42,10 @@ The simplestreams product exists. Its metadata file type is `incus.tar.xz`, so t
 | `systemctl is-system-running` | `running` |
 | `nix --version` | `nix (Nix) 2.34.9` |
 | `/root/write-probe` after `lxc restart` | Still present |
+| `developer` after `nixos-rebuild switch` | uid 1000, group `wheel`. `sudo -n id` prints `uid=0(root)` |
+| `/home/developer/home-probe` after `lxc restart` | Still present, owned by `developer` |
+| `/proc/self/uid_map` | `0 1000000 1000000000` |
+| First `sudo` in the few seconds after restart | PAM account error, then the next `sudo` succeeds |
 
 This instance is on the WSL LXD. It is not the host.
 
