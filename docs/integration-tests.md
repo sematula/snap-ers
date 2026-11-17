@@ -21,6 +21,18 @@ Observed on delia against installed `ers` 0.1.0 revision `x1`. Not re-run for th
 
 Hyprland was not launched. No Wayland client was launched.
 
+## NixOS image lookup (WSL LXD)
+
+| Command | Result |
+| --- | --- |
+| `lxc image list images: nixos` | Empty. `images` is `https://images.lxd.canonical.com` |
+| `lxc image show images:nixos/26.05` | Not found |
+| `lxc image show images:nixos/25.05` | Not found |
+| `lxc image show lxc-images:nixos/26.05` | Not found. `lxc-images` is `https://images.linuxcontainers.org` |
+| `lxc image show lxc-images:nixos/unstable` | Not found |
+
+The HTML index at `https://images.linuxcontainers.org/images/nixos/` lists `26.05` and `unstable` for amd64 and arm64, marked for LXC. This LXD does not present those aliases.
+
 ## Pivot milestones
 
 | Milestone | Result |

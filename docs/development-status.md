@@ -18,9 +18,11 @@ Not started. Nothing in the snap is Hyprland. Do not treat the bootstrap shell a
 
 ## M2 — NixOS container
 
-Not started. No image has been imported and no instance has been booted for this pivot.
+Not booted. No instance has been imported.
 
-Next action: import an unprivileged NixOS LXC image into the upstream LXD snap and boot it. Confirm systemd, Nix, an internal user, and a disk that survives restart. Leave ers unchanged while that proof runs.
+The WSL LXD remote `images` (`https://images.lxd.canonical.com`) has no `nixos/26.05` and no `nixos/25.05`. A remote `lxc-images` pointing at `https://images.linuxcontainers.org` was added on that same LXD. It also has no `nixos/26.05` and no `nixos/unstable`. The Linux Containers HTML index lists those builds for LXC and Incus. This LXD client is not offered them.
+
+Next action: build an image with nixos-generators (`-f lxc` and `-f lxc-metadata`) and import that. Leave ers unchanged while that proof runs. Do not write a custom image builder.
 
 ## M3 — first client
 
