@@ -12,7 +12,7 @@ On delia, `ers` 0.1.0 revision `x1` is installed confinement `strict`, base `cor
 
 ## What does not work
 
-Hyprland is not packaged and has not been launched. There is no `ers.desktop`. There is no Nix binary in the snap. There is no NixOS container.
+Hyprland is not packaged and has not been launched. There is no `ers.desktop`. There is no Nix binary in the snap. The userspace container was not part of this checkpoint. It now runs on the host LXD; see `docs/development-status.md`.
 
 The in-snap store writer was not finished. snapd creates `/var/snap/ers/common` as `root:root` mode `0755`. The install-hook profile cannot `chmod` or `chown` that directory. A child `$SNAP_COMMON/data` mode `1777` is what the shipped hook creates, and it is the wrong directory. An access ACL applied under the hook profile did make the directory mode `0777`, and that ACL is not in the shipped hook. Details are in `docs/nix-internal-user.md`.
 
@@ -49,6 +49,6 @@ That is why the store and the build users move into the NixOS container, where N
 
 ## Issues
 
-#11 is the spec. #12 is Hyprland in the snap. #13 is the NixOS container. #14 is the first Wayland client and is blocked by #12 and #13. #15, #16, and #17 follow #14.
+#11 is the spec. #12 is Hyprland in the snap. #13, the NixOS container, is closed. #14 is the first Wayland client and is blocked by #12. #15, #16, and #17 follow #14.
 
 #1, #4, and #6–#10 are closed. #2 is closed: the strict shell is in place, and the common-directory Nix writer is withdrawn. #3 stays closed. #5 stays open, in triage, and is not on the path to #14.

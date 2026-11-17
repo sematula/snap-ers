@@ -68,6 +68,6 @@ Same image fingerprint `301dcbd4f19c81b3ea3d7340553368bda00c68b0f107e790ffd31d08
 | Milestone | Result |
 | --- | --- |
 | M1 Hyprland under strict confinement, LXD stopped | Not run |
-| M2 NixOS container: systemd, Nix, internal user, restart | Not run |
+| M2 NixOS container: systemd, Nix, internal user, restart | Pass on the host. See above |
 | M3 Client process in the container, window on the Hyprland display | Not run |
 | M4 Accelerated client without display-control devices in the container | Not run |
