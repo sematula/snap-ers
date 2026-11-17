@@ -1,6 +1,6 @@
 # Development status
 
-Branch `pivot/nixos-lxd`. The pre-pivot tree is `8b9dfaf` on `legacy/in-snap-nix`. Neither branch is pushed.
+Branch `pivot/nixos-lxd`. The pre-pivot tree is `204335c` on `legacy/in-snap-nix`. Both branches are on GitHub.
 
 ## M0 — inventory
 

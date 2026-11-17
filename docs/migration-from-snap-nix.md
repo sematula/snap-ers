@@ -2,7 +2,7 @@
 
 The previous architecture put Nix, the store, and Hyprland inside ers. ADR 0009 moves Nix into an unprivileged NixOS system container and keeps Hyprland in the snap. This file is the inventory. The code it names is still in the tree.
 
-The checkpoint of that work, before these pivot notes, is `8b9dfaf` on `legacy/in-snap-nix`.
+The checkpoint of that work, before these pivot notes, is `204335c` on `legacy/in-snap-nix`.
 
 ## What already works
 

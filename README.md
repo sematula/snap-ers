@@ -21,6 +21,6 @@ Ubuntu Frame is pinned in this repository so upstream security and feature chang
 | Branch | `core26` |
 | Commit | `322a8fb67789b9fb831a5ab2cb486d3d5cba183f` (29 October 2026) |
 
-The pin is recorded on `legacy/in-snap-nix` at `8b9dfaf` and is on this branch. The in-snap Nix checkpoint is that same commit.
+The pin is recorded on `legacy/in-snap-nix` at `204335c` and is on this branch. The in-snap Nix checkpoint is that same commit.
 
 The host is delia, Ubuntu Server 26.04.1, reached as `warden@10.10.82.165` with `ssh -i /home/sematula/.ssh/warden_rsa` from WSL. The account is warden. `iac-delia` provisions the host. This repository's job is ERS.
