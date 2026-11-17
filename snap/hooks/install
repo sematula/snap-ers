@@ -1,0 +1,9 @@
+#!/bin/sh
+# snapd creates $SNAP_COMMON as root:root mode 0755 before this hook runs.
+# The install-hook profile cannot chmod that directory. It can create a
+# directory under it and set that mode. Mode 1777 lets the user who runs ERS
+# write the snap's common data. The hook does not name a host account.
+set -eu
+mkdir -p "$SNAP_COMMON"
+mkdir -p "$SNAP_COMMON/data"
+chmod 1777 "$SNAP_COMMON/data"

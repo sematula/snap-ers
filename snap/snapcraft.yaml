@@ -1,0 +1,26 @@
+name: ers
+summary: Bootstrap shell for Edge Runner Shell
+description: |
+  Strictly confined bootstrap for Edge Runner Shell.
+  ers.bash is a shell shipped in this snap. It starts without a Nix
+  userspace generation.
+version: "0.1.0"
+grade: devel
+confinement: strict
+base: core26
+compression: lzo
+
+platforms:
+  amd64:
+
+apps:
+  bash:
+    command: usr/bin/bash
+    environment:
+      PATH: $SNAP/usr/sbin:$SNAP/usr/bin:$SNAP/sbin:$SNAP/bin:$PATH
+
+parts:
+  bootstrap:
+    plugin: nil
+    stage-packages:
+      - bash

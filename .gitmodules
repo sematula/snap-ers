@@ -1,0 +1,4 @@
+[submodule "ubuntu-frame"]
+	path = reference/ubuntu-frame
+	url = https://github.com/canonical/ubuntu-frame.git
+	branch = core26
