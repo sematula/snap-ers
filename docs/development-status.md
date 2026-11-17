@@ -18,7 +18,7 @@ Not started. Nothing in the snap is Hyprland. Do not treat the bootstrap shell a
 
 ## M2 — NixOS container
 
-Issue #13. A container is running on the WSL LXD, not on the host.
+Issue #13. The same image is running on the host LXD and on the WSL LXD.
 
 LXD 6.10.1 does not present `nixos/26.05` from either image remote. The simplestreams product `nixos:26.05:amd64:default` is published, and its metadata file type is `incus.tar.xz`. Importing that metadata tarball and `rootfs.squashfs` by hand worked. Build `20261117_01:01`. Fingerprint `301dcbd4f19c81b3ea3d7340553368bda00c68b0f107e790ffd31d08c0b714c5`. Alias `nixos-26.05`.
 
@@ -30,7 +30,7 @@ The Proxmox wiki's `nixos.proxmoxLXC` tarball is a different artifact. Its sampl
 
 On this instance, `developer` is uid 1000 in group `wheel`. `sudo -n id` prints `uid=0(root)`. `/home/developer/home-probe`, owned by `developer`, was still there after `lxc restart`. The container uid map is `0 1000000 1000000000`, so that root is not host root. The first `sudo` in the few seconds after restart failed with a PAM account error; the next one succeeded.
 
-Still open on #13: the same boot on the host's LXD.
+On the host, instance `ers-nixos` is the same fingerprint, unprivileged, `security.nesting=true`. systemd is `running`. `developer` can `sudo`, and `/home/developer/home-probe` was still there after restart. The uid map is `0 1000000 1000000000`. Ubuntu Frame, the kiosk, and `ers` stayed up. #13 is complete.
 
 ## M3 — first client
 

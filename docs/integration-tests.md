@@ -47,7 +47,21 @@ The simplestreams product exists. Its metadata file type is `incus.tar.xz`, so t
 | `/proc/self/uid_map` | `0 1000000 1000000000` |
 | First `sudo` in the few seconds after restart | PAM account error, then the next `sudo` succeeds |
 
-This instance is on the WSL LXD. It is not the host.
+This instance is on the WSL LXD.
+
+## NixOS container on the host
+
+Same image fingerprint `301dcbd4f19c81b3ea3d7340553368bda00c68b0f107e790ffd31d08c0b714c5`, imported by file and started as `ers-nixos`.
+
+| Check | Result |
+| --- | --- |
+| `security.privileged` / `security.nesting` | `false` / `true` |
+| `nix --version` | `nix (Nix) 2.34.9` |
+| `systemctl is-system-running` | `running` |
+| `developer` `sudo -n id` after restart | `uid=0(root)` |
+| `/home/developer/home-probe` after restart | Still present, owned by `developer` |
+| `/proc/self/uid_map` | `0 1000000 1000000000` |
+| Ubuntu Frame, the kiosk, and `ers` | Still active. `ers` remains 0.1.0 revision `x1` |
 
 ## Pivot milestones
 

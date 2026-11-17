@@ -8,7 +8,7 @@ ERS is intended to run first on Ubuntu Server 26.04 LTS, and later on Ubuntu Cor
 
 ## Current state
 
-`ers` is a strictly confined snap on the core26 base. `ers.bash` is a shell shipped in the snap. Hyprland is not packaged yet. No NixOS container is running. There is no runtime Nix inside the snap.
+`ers` is a strictly confined snap on the core26 base. `ers.bash` is a shell shipped in the snap. Hyprland is not packaged yet. An unprivileged NixOS 26.05 container named `ers-nixos` is running on the host LXD. There is no runtime Nix inside the snap.
 
 Which packaging, interfaces, graphics setup, and launch scripts from the pinned Ubuntu Frame reference ers keeps is recorded in `docs/frame-packaging.md`.
 
