@@ -24,15 +24,15 @@ A Wayland connection lets a container client use the protocols Hyprland exposes.
 
 ## Milestones
 
-| Milestone | Result |
-| --- | --- |
-| M0 | Existing work preserved, UID blocker recorded, this architecture written down |
-| M1 | Strictly confined ers runs Hyprland with no container required |
-| M2 | Unprivileged NixOS container boots, runs Nix, and keeps its disk across restart |
-| M3 | A Wayland client inside the container appears on the Hyprland display |
-| M4 | A hardware-accelerated client renders without the container owning the display |
-| M5 | A person can work in the container from the Hyprland session |
-| M6 | Each layer restarts and recovers without taking the others with it |
+| Milestone | Issue | Result |
+| --- | --- | --- |
+| M0 | | Existing work preserved, UID blocker recorded, this architecture written down |
+| M1 | #12 | Strictly confined ers runs Hyprland with no container required |
+| M2 | #13 | Unprivileged NixOS container boots, runs Nix, and keeps its disk across restart |
+| M3 | #14 | A Wayland client inside the container appears on the Hyprland display |
+| M4 | #15 | A hardware-accelerated client renders without the container owning the display |
+| M5 | #16 | A person can work in the container from the Hyprland session |
+| M6 | #17 | Each layer restarts and recovers without taking the others with it |
 
 M3 is the feasibility gate for the pivot. A built snap, a booted container, a visible window, and an accelerated window are four separate results.
 

@@ -18,11 +18,13 @@ Not started. Nothing in the snap is Hyprland. Do not treat the bootstrap shell a
 
 ## M2 — NixOS container
 
-Not booted. No instance has been imported.
+Issue #13. A container is running on the WSL LXD, not on the host.
 
-The WSL LXD remote `images` (`https://images.lxd.canonical.com`) has no `nixos/26.05` and no `nixos/25.05`. A remote `lxc-images` pointing at `https://images.linuxcontainers.org` was added on that same LXD. It also has no `nixos/26.05` and no `nixos/unstable`. The Linux Containers HTML index lists those builds for LXC and Incus. This LXD client is not offered them.
+LXD 6.10.1 does not present `nixos/26.05` from either image remote. The simplestreams product `nixos:26.05:amd64:default` is published, and its metadata file type is `incus.tar.xz`. Importing that metadata tarball and `rootfs.squashfs` by hand worked. Build `20261117_01:01`. Fingerprint `301dcbd4f19c81b3ea3d7340553368bda00c68b0f107e790ffd31d08c0b714c5`. Alias `nixos-26.05`.
 
-Next action: build an image with nixos-generators (`-f lxc` and `-f lxc-metadata`) and import that. Leave ers unchanged while that proof runs. Do not write a custom image builder.
+Instance `ers-nixos`: `security.privileged=false`, `security.nesting=true`. NixOS 26.05 (Yarara), Nix 2.34.9, systemd `running`. `/root/write-probe` was still there after `lxc restart`.
+
+Still open on #13: an internal user with sudo, and the same boot on the host's LXD.
 
 ## M3 — first client
 

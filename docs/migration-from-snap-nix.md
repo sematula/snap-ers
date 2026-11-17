@@ -49,4 +49,6 @@ That is why the store and the build users move into the NixOS container, where N
 
 ## Issues
 
-GitHub issues #1–#10 describe the in-snap Nix demonstration. #1 is the old spec. The milestone plan that replaces it is in `docs/architecture.md`.
+#11 is the spec. #12 is Hyprland in the snap. #13 is the NixOS container. #14 is the first Wayland client and is blocked by #12 and #13. #15, #16, and #17 follow #14.
+
+#1, #4, and #6–#10 are closed. #2 is closed: the strict shell is in place, and the common-directory Nix writer is withdrawn. #3 stays closed. #5 stays open, in triage, and is not on the path to #14.

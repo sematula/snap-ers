@@ -21,7 +21,7 @@ Observed on delia against installed `ers` 0.1.0 revision `x1`. Not re-run for th
 
 Hyprland was not launched. No Wayland client was launched.
 
-## NixOS image lookup (WSL LXD)
+## NixOS image (WSL LXD 6.10.1)
 
 | Command | Result |
 | --- | --- |
@@ -30,8 +30,20 @@ Hyprland was not launched. No Wayland client was launched.
 | `lxc image show images:nixos/25.05` | Not found |
 | `lxc image show lxc-images:nixos/26.05` | Not found. `lxc-images` is `https://images.linuxcontainers.org` |
 | `lxc image show lxc-images:nixos/unstable` | Not found |
+| `lxc image import` of `incus.tar.xz` then `rootfs.squashfs` for `nixos/26.05` build `20261117_01:01` | Imported. Fingerprint `301dcbd4f19c81b3ea3d7340553368bda00c68b0f107e790ffd31d08c0b714c5` |
 
-The HTML index at `https://images.linuxcontainers.org/images/nixos/` lists `26.05` and `unstable` for amd64 and arm64, marked for LXC. This LXD does not present those aliases.
+The simplestreams product exists. Its metadata file type is `incus.tar.xz`, so the LXD client does not offer the alias. The same two files import.
+
+| Check on instance `ers-nixos` | Result |
+| --- | --- |
+| `security.privileged` | `false` |
+| `security.nesting` | `true` |
+| `/etc/os-release` | NixOS 26.05 (Yarara), build `26.05.14561.b349185bb79c` |
+| `systemctl is-system-running` | `running` |
+| `nix --version` | `nix (Nix) 2.34.9` |
+| `/root/write-probe` after `lxc restart` | Still present |
+
+This instance is on the WSL LXD. It is not the host.
 
 ## Pivot milestones
 
